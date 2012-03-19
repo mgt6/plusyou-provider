@@ -1,0 +1,25 @@
+INFO   OpportunitiesImport : STARTING OpportunityImportService
+INFO   JSchFileTransferService : connected to server 'localhost'
+INFO   JSchFileTransferService : changed to directory 'target/file-server'
+INFO   JSchFileTransferService : found file 'data_1.csv' to download
+INFO   JSchFileTransferService : created temp file 'data_15784849784346701462.csv'
+INFO   JSchFileTransferService : begin download of file 'data_1.csv'
+INFO   JSchFileTransferService : end download of file 'data_1.csv'
+INFO   JSchFileTransferService : marked file 'data_1.csv' as downloaded
+INFO   JSchFileTransferService : disconnected from server 'localhost'
+INFO   ImportService : begin process of file 'data_1.csv'
+INFO   ImportService : successfully processed row 1
+INFO   ImportService : successfully processed row 2
+INFO   ImportService : begin run of batch 1
+INFO   ImportService : begin execute of sql 'merge_organizations.sql'
+INFO   ImportService : end execute of sql 'merge_organizations.sql'
+INFO   ImportService : begin execute of sql 'merge_opportunities.sql'
+INFO   ImportService : end execute of sql 'merge_opportunities.sql'
+INFO   ImportService : begin execute of sql 'delete_opportunities_interests.sql'
+INFO   ImportService : end execute of sql 'delete_opportunities_interests.sql'
+INFO   ImportService : begin execute of sql 'insert_opportunities_interests.sql'
+INFO   ImportService : end execute of sql 'insert_opportunities_interests.sql'
+INFO   ImportService : end run of batch 1
+INFO   ImportService : end process of file 'data_1.csv'
+INFO   OpportunitiesImport : successfully deleted local file: 'data_15784849784346701462.csv'
+INFO   OpportunitiesImport : STOPPING OpportunityImportService

@@ -1,0 +1,171 @@
+<opportunities>
+    <opportunity xmlns="urn:com:openplanetideas:plusyou:provider">
+        <id>4</id>
+        <externalId>-4</externalId>
+        <title>Volunteer shorter roles and one-off projects</title>
+        <description>To meet participants and other volunteers and demonstrate their particular skill.</description>
+        <interests>
+            <interest>
+                <id>2</id>
+                <name>Art and Culture</name>
+                <interestCategory>ART</interestCategory>
+            </interest>
+            <interest>
+                <id>4</id>
+                <name>Disability</name>
+                <interestCategory>DISABILITY</interestCategory>
+            </interest>
+            <interest>
+                <id>6</id>
+                <name>Music</name>
+                <interestCategory>MUSIC</interestCategory>
+            </interest>
+            <interest>
+                <id>7</id>
+                <name>Education and Literacy</name>
+                <interestCategory>EDUCATION</interestCategory>
+            </interest>
+        </interests>
+        <date>2011-10-18 00:00:00</date>
+        <beginTime>1970-01-01 12:15:00</beginTime>
+        <endTime>1970-01-01 15:00:00</endTime>
+        <vendor>
+            <id>1</id>
+            <name>Do-it</name>
+        </vendor>
+        <geoLocation>
+            <latitude>51.360929</latitude>
+            <longitude>-0.160761</longitude>
+        </geoLocation>
+        <address>
+            <street>4 Ashcombe Rd</street>
+            <postcode>SM5 3</postcode>
+            <city>Sutton</city>
+            <country>
+                <id>1</id>
+                <name>United Kingdom</name>
+            </country>
+        </address>
+        <organization>
+            <id>2</id>
+            <name>Volunteer Centre Sutton</name>
+            <address>
+                <street>31 West Street</street>
+                <postcode>SM1 1SJ</postcode>
+                <city>Sutton</city>
+                <country>
+                    <id>1</id>
+                    <name>United Kingdom</name>
+                </country>
+            </address>
+            <telephone>0208 661 5900</telephone>
+            <email>vcsutton@vcsutton.org.uk</email>
+        </organization>
+        <distance>1.75</distance>
+    </opportunity>
+
+    <opportunity xmlns="urn:com:openplanetideas:plusyou:provider">
+        <id>2</id>
+        <externalId>-2</externalId>
+        <title>Free Summer Film Training</title>
+        <description>Learn how to make TV with something to say Free summer film training for 16-25 year olds</description>
+        <interests>
+            <interest>
+                <id>2</id>
+                <name>Art and Culture</name>
+                <interestCategory>ART</interestCategory>
+            </interest>
+            <interest>
+                <id>3</id>
+                <name>Politics</name>
+                <interestCategory>POLITICS</interestCategory>
+            </interest>
+        </interests>
+        <date>2011-10-07 00:00:00</date>
+        <beginTime>1970-01-01 14:30:00</beginTime>
+        <endTime>1970-01-01 16:30:00</endTime>
+        <vendor>
+            <id>1</id>
+            <name>Do-it</name>
+        </vendor>
+        <geoLocation>
+            <latitude>51.368324</latitude>
+            <longitude>-0.183892</longitude>
+        </geoLocation>
+        <address>
+            <street>Duke St</street>
+            <postcode>SM1 4</postcode>
+            <city>Sutton</city>
+            <country>
+                <id>1</id>
+                <name>United Kingdom</name>
+            </country>
+        </address>
+        <organization>
+            <id>2</id>
+            <name>Volunteer Centre Sutton</name>
+            <address>
+                <street>31 West Street</street>
+                <postcode>SM1 1SJ</postcode>
+                <city>Sutton</city>
+                <country>
+                    <id>1</id>
+                    <name>United Kingdom</name>
+                </country>
+            </address>
+            <telephone>0208 661 5900</telephone>
+            <email>vcsutton@vcsutton.org.uk</email>
+        </organization>
+        <distance>2.77</distance>
+    </opportunity>
+
+    <opportunity xmlns="urn:com:openplanetideas:plusyou:provider">
+        <id>1</id>
+        <externalId>-1</externalId>
+        <title>Cheering Squad</title>
+        <description>We have a team of 300 people running in the Royal Parks Half marathon. Some of them will speed around and finish near the front; some will find it a challenge and take 3 hours to finish the race. All of them will be raising money for Right To Play</description>
+        <interests>
+            <interest>
+                <id>1</id>
+                <name>Sport and Outdoor Activities</name>
+                <interestCategory>SPORT</interestCategory>
+            </interest>
+        </interests>
+        <date>2011-10-05 00:00:00</date>
+        <beginTime>1970-01-01 09:00:00</beginTime>
+        <endTime>1970-01-01 11:00:00</endTime>
+        <vendor>
+            <id>1</id>
+            <name>Do-it</name>
+        </vendor>
+        <geoLocation>
+            <latitude>51.369664</latitude>
+            <longitude>-0.186338</longitude>
+        </geoLocation>
+        <address>
+            <street>127-135 Oakhill Rd</street>
+            <postcode>SM1 3</postcode>
+            <city>Sutton</city>
+            <country>
+                <id>1</id>
+                <name>United Kingdom</name>
+            </country>
+        </address>
+        <organization>
+            <id>1</id>
+            <name>Brent Volunteer Centre - BrAVA</name>
+            <address>
+                <street>3rd Floor, 144-150 High Road</street>
+                <postcode>NW10 2PT</postcode>
+                <city>Willesden</city>
+                <country>
+                    <id>1</id>
+                    <name>United Kingdom</name>
+                </country>
+            </address>
+            <telephone>0208 438 1520</telephone>
+            <email>volunteering@brava.org.uk</email>
+        </organization>
+        <distance>2.91</distance>
+    </opportunity>
+</opportunities>

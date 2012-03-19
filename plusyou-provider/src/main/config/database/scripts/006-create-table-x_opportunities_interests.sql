@@ -1,0 +1,3 @@
+create table x_opportunities_interests (opportunity_id bigint not null, interest_id bigint not null, unique (opportunity_id, interest_id)) ENGINE=InnoDB;
+alter table x_opportunities_interests add index FK9DE0BBB4835F28E3 (opportunity_id), add constraint FK9DE0BBB4835F28E3 foreign key (opportunity_id) references opportunities (id);
+alter table x_opportunities_interests add index FK9DE0BBB42D5D4211 (interest_id), add constraint FK9DE0BBB42D5D4211 foreign key (interest_id) references interests (id);

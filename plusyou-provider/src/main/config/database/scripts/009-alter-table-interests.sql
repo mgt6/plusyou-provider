@@ -1,0 +1,1 @@
+alter table interests change interestType interestCategory varchar(255);

@@ -1,0 +1,1 @@
+insert into vendors(name) values('Do-it');

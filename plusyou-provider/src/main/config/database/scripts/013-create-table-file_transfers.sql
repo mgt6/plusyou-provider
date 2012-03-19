@@ -1,0 +1,1 @@
+create table file_transfers (id bigint not null auto_increment, contactPerson varchar(255) not null, directory varchar(255) not null, enabled bit not null, host varchar(255) not null unique, password varchar(255) not null, port integer not null, user varchar(255) not null, primary key (id)) ENGINE=InnoDB;

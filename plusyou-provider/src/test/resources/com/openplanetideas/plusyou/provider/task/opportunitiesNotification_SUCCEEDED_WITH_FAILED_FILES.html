@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <style type="text/css">
+            .SUCCEEDED {color: green; font-weight: bold;}
+            .SUCCEEDED_WITH_FAILED_FILES {color: orange; font-weight: bold;}
+            .FAILED {color: red; font-weight: bold;}
+
+            .title {color: blue;}
+            .error {color: red;}
+            th {border: solid 1px; padding: 5px; text-align: left;}
+            td {border: solid 1px; padding: 5px; color: red;}
+        </style>
+    </head>
+
+    <body>
+        Hi,
+
+        <p>This is an auto-generated email to inform you that the daily import of opportunities <span class="SUCCEEDED_WITH_FAILED_FILES">Succeeded with failed rows.</span>
+        <br/>You'll find the log file in attachment.</p>
+
+        <p><span class="title">Problem(s) for file: filename.csv</span></p>
+        <table>
+            <tr>
+                <th>row</th>
+                <th>exception</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>RequiredColumnException: column 'Title' must have a value</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>MySQLIntegrityConstraintViolationException: Column 'interest_id' cannot be null</td>
+            </tr>
+        </table>
+    </body>
+</html>

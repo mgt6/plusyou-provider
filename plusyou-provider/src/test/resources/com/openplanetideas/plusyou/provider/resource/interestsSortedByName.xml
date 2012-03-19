@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<interests>
+    <interest xmlns="urn:com:openplanetideas:plusyou:provider">
+        <id>2</id>
+        <name>Art and Culture</name>
+        <interestCategory>ART</interestCategory>
+    </interest>
+    <interest xmlns="urn:com:openplanetideas:plusyou:provider">
+        <id>9</id>
+        <name>Community Services</name>
+        <interestCategory>COMMUNITY_SERVICES</interestCategory>
+    </interest>
+    <interest xmlns="urn:com:openplanetideas:plusyou:provider">
+        <id>4</id>
+        <name>Disability</name>
+        <interestCategory>DISABILITY</interestCategory>
+    </interest>
+    <interest xmlns="urn:com:openplanetideas:plusyou:provider">
+        <id>7</id>
+        <name>Education and Literacy</name>
+        <interestCategory>EDUCATION</interestCategory>
+    </interest>
+    <interest xmlns="urn:com:openplanetideas:plusyou:provider">
+        <id>5</id>
+        <name>Elderly</name>
+        <interestCategory>ELDERLY</interestCategory>
+    </interest>
+    <interest xmlns="urn:com:openplanetideas:plusyou:provider">
+        <id>8</id>
+        <name>Environment</name>
+        <interestCategory>ENVIRONMENT</interestCategory>
+    </interest>
+    <interest xmlns="urn:com:openplanetideas:plusyou:provider">
+        <id>6</id>
+        <name>Music</name>
+        <interestCategory>MUSIC</interestCategory>
+    </interest>
+    <interest xmlns="urn:com:openplanetideas:plusyou:provider">
+        <id>3</id>
+        <name>Politics</name>
+        <interestCategory>POLITICS</interestCategory>
+    </interest>
+    <interest xmlns="urn:com:openplanetideas:plusyou:provider">
+        <id>1</id>
+        <name>Sport and Outdoor Activities</name>
+        <interestCategory>SPORT</interestCategory>
+    </interest>
+</interests>

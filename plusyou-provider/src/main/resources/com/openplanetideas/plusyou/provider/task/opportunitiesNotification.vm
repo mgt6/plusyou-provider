@@ -1,0 +1,51 @@
+#if($processStatus.type == "SUCCEEDED")
+    #set($status = "Succeeded")
+#elseif($processStatus.type == "SUCCEEDED_WITH_FAILED_FILES")
+    #set($status = "Succeeded with failed rows")
+#else
+    #set($status = "Failed")
+#end
+
+<html>
+    <head>
+        <style type="text/css">
+            .SUCCEEDED {color: green; font-weight: bold;}
+            .SUCCEEDED_WITH_FAILED_FILES {color: orange; font-weight: bold;}
+            .FAILED {color: red; font-weight: bold;}
+
+            .title {color: blue;}
+            .error {color: red;}
+            th {border: solid 1px; padding: 5px; text-align: left;}
+            td {border: solid 1px; padding: 5px; color: red;}
+        </style>
+    </head>
+
+    <body>
+        Hi,
+
+        <p>This is an auto-generated email to inform you that the daily import of opportunities <span class="$processStatus.type">$status.</span>
+        <br/>You'll find the log file in attachment.</p>
+
+        #if($processStatus.type == "FAILED")
+            <p><span class="title">Problem: </span><span class="error">$processStatus.failedMessage</span></p>
+        #end
+
+        #if($processStatus.type == "SUCCEEDED_WITH_FAILED_FILES")
+            #foreach($failedFile in $processStatus.failedFiles)
+                <p><span class="title">Problem(s) for file: $failedFile.filename</span></p>
+                <table>
+                    <tr>
+                        <th>row</th>
+                        <th>exception</th>
+                    </tr>
+                    #foreach($failedRow in $failedFile.failedRows)
+                        <tr>
+                            <td>$failedRow.id</td>
+                            <td>$failedRow.failedMessage</td>
+                        </tr>
+                    #end
+                </table>
+            #end
+        #end
+    </body>
+</html>

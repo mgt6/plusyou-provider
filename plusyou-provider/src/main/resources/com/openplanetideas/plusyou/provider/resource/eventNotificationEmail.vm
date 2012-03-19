@@ -1,0 +1,31 @@
+#if($type == "join")
+    #set($typeText = "JOIN")
+#else
+    #set($typeText = "WITHDRAW FROM")
+#end
+
+#if($opportunity.beginTime.minutes == 0)
+    #set($timeFormat = "h a")
+#else
+    #set($timeFormat = "h:mm a")
+#end
+
+<html>
+    <head>
+        <style type="text/css">
+            .user {color: blue}
+            .join {color: green}
+            .withdraw {color: red}
+            .event {color: blue}
+            .time {text-decoration: underline}
+        </style>
+    </head>
+
+    <body>
+        Hi,
+
+        <p>This is an auto-generated email to inform you that <span class="user">$user</span>
+        decided to <span class="$type">$typeText</span> the event <span class="event">$opportunity.title</span>
+        <span class="time">on $dateTool.format('d MMM yyyy', $opportunity.date) at $dateTool.format($timeFormat, $opportunity.beginTime).</span>
+    </body>
+</html>

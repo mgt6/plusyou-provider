@@ -1,0 +1,6 @@
+<vendors>
+    <vendor xmlns="urn:com:openplanetideas:plusyou:provider">
+        <id>1</id>
+        <name>Do-it</name>
+    </vendor>
+</vendors>

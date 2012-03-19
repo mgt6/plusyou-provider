@@ -1,0 +1,2 @@
+create table organizations (id bigint not null auto_increment, city varchar(255) not null, postcode varchar(255) not null, street varchar(255) not null, email varchar(255), name varchar(255) not null unique, telephone integer, website varchar(255), country_id bigint not null, primary key (id)) ENGINE=InnoDB;
+alter table organizations add index FK8258B9A032D33A83 (country_id), add constraint FK8258B9A032D33A83 foreign key (country_id) references countries (id);

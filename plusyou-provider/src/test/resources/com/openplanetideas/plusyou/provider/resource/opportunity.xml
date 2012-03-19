@@ -1,0 +1,53 @@
+<opportunity xmlns="urn:com:openplanetideas:plusyou:provider">
+    <id>2</id>
+    <externalId>-2</externalId>
+    <title>Free Summer Film Training</title>
+    <description>Learn how to make TV with something to say Free summer film training for 16-25 year olds</description>
+    <interests>
+        <interest>
+            <id>2</id>
+            <name>Art and Culture</name>
+            <interestCategory>ART</interestCategory>
+        </interest>
+        <interest>
+            <id>3</id>
+            <name>Politics</name>
+            <interestCategory>POLITICS</interestCategory>
+        </interest>
+    </interests>
+    <date>2011-10-07 00:00:00</date>
+    <beginTime>1970-01-01 14:30:00</beginTime>
+    <endTime>1970-01-01 16:30:00</endTime>
+    <vendor>
+        <id>1</id>
+        <name>Do-it</name>
+    </vendor>
+    <geoLocation>
+        <latitude>51.368324</latitude>
+        <longitude>-0.183892</longitude>
+    </geoLocation>
+    <address>
+        <street>Duke St</street>
+        <postcode>SM1 4</postcode>
+        <city>Sutton</city>
+        <country>
+            <id>1</id>
+            <name>United Kingdom</name>
+        </country>
+    </address>
+    <organization>
+        <id>2</id>
+        <name>Volunteer Centre Sutton</name>
+        <address>
+            <street>31 West Street</street>
+            <postcode>SM1 1SJ</postcode>
+            <city>Sutton</city>
+            <country>
+                <id>1</id>
+                <name>United Kingdom</name>
+            </country>
+        </address>
+        <telephone>0208 661 5900</telephone>
+        <email>vcsutton@vcsutton.org.uk</email>
+    </organization>
+</opportunity>
