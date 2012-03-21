@@ -37,7 +37,6 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class FileTransferRepositoryImplTest extends AbstractFileTransferRepositoryImplTest {
@@ -45,12 +44,12 @@ public class FileTransferRepositoryImplTest extends AbstractFileTransferReposito
     @Test
     public void findAll_OK() {
         FileTransfer expectedFileTransfer = new FileTransfer.Builder()
-                .withHost("localhost1")
-                .withPort(2200)
-                .withUser("TestUser")
-                .withPassword("the_password")
-                .withDirectory("/var/plus_you/download")
-                .withContactPerson("test01.plusyou@gmail.com")
+                .withHost("localhost_1")
+                .withPort(22)
+                .withUser("test")
+                .withPassword("encrypted_password")
+                .withDirectory("/folder_with_files_to_download")
+                .withContactPerson("test@domain.com")
                 .withEnabled(true)
                 .build();
         
@@ -60,7 +59,6 @@ public class FileTransferRepositoryImplTest extends AbstractFileTransferReposito
 
         String expectedPassword = expectedFileTransfer.getPassword();
         String actualPassword = actualFileTransfers.get(0).getPassword();
-        assertFalse(expectedPassword.equals(actualPassword));
-        assertTrue(expectedPassword.equals(stringEncryptor.decrypt(actualPassword)));
+        assertTrue(expectedPassword.equals(actualPassword));
     }
 }

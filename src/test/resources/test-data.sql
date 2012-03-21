@@ -16,9 +16,9 @@ insert into interests(name, interestCategory) values('Community Services', 'COMM
 insert into vendors(name) values('Do-it');
 
 insert into file_transfers(host, port, user, password, directory, contactPerson, enabled)
-values('localhost1', 2200, 'TestUser', 'RMgLXfNjgeQQsS7a705kIm1rWe9eXGdM', '/var/plus_you/download', 'test01.plusyou@gmail.com', 1);
+values('localhost_1', 22, 'test', 'encrypted_password', '/folder_with_files_to_download', 'test@domain.com', 1);
 insert into file_transfers(host, port, user, password, directory, contactPerson, enabled)
-values('localhost2', 2200, 'TestUser', 'RMgLXfNjgeQQsS7a705kIm1rWe9eXGdM', '/var/plus_you/download', 'test01.plusyou@gmail.com', 0);
+values('localhost_2', 22, 'test', 'encrypted_password', '/folder_with_files_to_download', 'test@domain.com', 0);
 
 insert into opportunities(city, postcode, street, beginTime, created, date, description, endTime, latitude, longitude, title, updated, country_id, organization_id, vendor_id, externalId)
         values('Sutton', 'SM1 3', '127-135 Oakhill Rd', '09:00:00', current_timestamp, '2011-10-05', 'We have a team of 300 people running in the Royal Parks Half marathon. Some of them will speed around and finish near the front; some will find it a challenge and take 3 hours to finish the race. All of them will be raising money for Right To Play', '11:00:00', 51.369664, -0.186338, 'Cheering Squad', current_timestamp, 1, 1, 1, -1);
