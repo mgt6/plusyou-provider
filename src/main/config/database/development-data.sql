@@ -1,10 +1,6 @@
-truncate file_transfers;
 truncate x_opportunities_interests;
 truncate opportunities;
 truncate organizations;
-
-insert into file_transfers(host, port, user, password, directory, contactPerson, enabled)
-values('localhost', 22, 'TestUser', 'uTWguGFKOKRkYvo9mMVHH2E/wE8ns1yH', '/var/plus_you/download', 'test01.plusyou@gmail.com', 0);
 
 insert into organizations(city, postcode, street, email, name, telephone, website, country_id) values('Willesden', 'NW10 2PT', '3rd Floor, 144-150 High Road', 'volunteering@brava.org.uk', 'Brent Volunteer Centre - BrAVA', '0208 438 1520', null, 1);
 insert into organizations(city, postcode, street, email, name, telephone, website, country_id) values('Sutton', 'SM1 1SJ', '31 West Street', 'vcsutton@vcsutton.org.uk', 'Volunteer Centre Sutton', '0208 661 5900', null, 1);
