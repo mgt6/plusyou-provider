@@ -1,0 +1,2 @@
+insert into file_transfers(host, port, user, password, directory, contactPerson, enabled)
+values('{host}', {port_number}, '{username}', '{encrypted_password}', '{folder_with_csv_files_to_download}', '{email_to_send_report_to}', 1);
