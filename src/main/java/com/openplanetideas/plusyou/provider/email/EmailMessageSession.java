@@ -45,9 +45,13 @@ public class EmailMessageSession {
     private String username;
     private String password;
 
-    public EmailMessageSession(String host) {
+    public EmailMessageSession(String host, Integer port) {
         this.host = host;
         properties.setProperty("mail.smtp.host", host);
+
+        this.port = port;
+        properties.put("mail.smtp.port", port);
+        properties.put("mail.smtp.socketFactory.port", port);
 
         properties.setProperty("mail.transport.protocol", "smtp");
         properties.put("mail.smtp.timeout", TIMEOUT);
@@ -55,12 +59,8 @@ public class EmailMessageSession {
     }
 
     public EmailMessageSession(String host, Integer port, String username, String password) {
-        this(host);
+        this(host, port);
 
-        this.port = port;
-        properties.put("mail.smtp.port", port);
-        properties.put("mail.smtp.socketFactory.port", port);
-        
         this.username = username;
         this.password = password;
         properties.setProperty("mail.smtp.auth", "true");

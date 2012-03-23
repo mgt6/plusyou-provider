@@ -71,7 +71,7 @@ public abstract class AbstractOpportunitiesNotificationTest {
     @Before
     public void setUp() throws IOException {
         file = new ClassPathResource("opportunities.log", getClass()).getFile();
-        server = new GreenMail(new ServerSetup(25, "localhost", ServerSetup.PROTOCOL_SMTP));
+        server = new GreenMail(new ServerSetup(3025, "localhost", ServerSetup.PROTOCOL_SMTP));
         server.start();
         XMLUnit.setIgnoreWhitespace(true);
     }

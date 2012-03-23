@@ -42,7 +42,7 @@ public class EmailTestConfig {
     
     @Bean
     public EmailMessageSession emailMessageSession() {
-        return new EmailMessageSession("localhost");
+        return new EmailMessageSession("localhost", 3025);
     }
     
     @Bean
