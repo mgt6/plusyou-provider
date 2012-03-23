@@ -20,6 +20,9 @@ Some features of the api
 ##jasypt encrypt example
 encrypt input="This is my message to be encrypted" password=MYPAS_WORD
 
+##google setup
+* create google account (<https://accounts.google.com/SignUp?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ltmpl=default>)
+
 ##maven setup
 add or modify profiles (settings.xml)
 
