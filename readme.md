@@ -8,8 +8,6 @@ Some features of the api
 * notify charity via email when user registers for volunteering opportunity
 * ...
 
-<img src="https://github.com/youthnet/plusyou-provider/blob/master/database-diagram.png?raw=true"/>
-
 ##software installation
 * java 6 (<http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase6-419409.html>)
 * jasypt (<http://sourceforge.net/projects/jasypt/files>)
