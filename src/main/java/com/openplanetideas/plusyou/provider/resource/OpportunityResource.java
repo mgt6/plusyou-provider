@@ -48,6 +48,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.GenericEntity;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Collections;
 import java.util.Date;
@@ -62,37 +63,47 @@ public class OpportunityResource extends AbstractResource {
 
     @GET
     @Path("{id}")
-    public Response findById(@PathParam("id") Long idParam) {
+    public Response findById(@PathParam("id") Long idParam, @QueryParam("asJson") Boolean asJson) {
         Opportunity opportunity = opportunityRepository.findById(idParam);
         if (opportunity == null) {
             return Response.noContent().build();
         }
         else {
-            return Response.ok(opportunity).build();
+            if(asJson == null || !asJson){
+                return Response.ok(opportunity).build();
+            }else {
+                return Response.ok(opportunity, MediaType.APPLICATION_JSON).build();
+            }
         }
     }
 
     @GET
     @Path("ids")
-    public Response findByIds(@QueryParam("id") List<Long> opportunityIds) {
+    public Response findByIds(@QueryParam("id") List<Long> opportunityIds, @QueryParam("asJson") Boolean asJson) {
         List<Opportunity> opportunities = opportunityRepository.findByIds(opportunityIds);
 
         if (opportunities.isEmpty()) {
             return Response.noContent().build();
         } else {
             GenericEntity<List<Opportunity>> entity = new GenericEntity<List<Opportunity>>(opportunities){};
-            return Response.ok(entity).build();
+            if(asJson == null || !asJson){
+                return Response.ok(entity).build();
+            }else {
+                return Response.ok(entity, MediaType.APPLICATION_JSON).build();
+            }
         }
     }
 
     @GET
-    public Response findForCriteria(@MatrixParam("interest") Long interestParam,
+    public Response findForCriteria(
+                                    @QueryParam("asJson") Boolean asJson,
+                                    @MatrixParam("interest") Long interestParam,
                                     @RequiredParam @MatrixParam("beginDate") DateParam beginDateParam,
                                     @RequiredParam @MatrixParam("endDate") DateParam endDateParam,
                                     @RequiredParam @MatrixParam("distance") Integer distanceParam,
                                     @RequiredParam @MatrixParam("latitude") Double latitudeParam,
                                     @RequiredParam @MatrixParam("longitude") Double longitudeParam,
-                                    @RequiredParam @MatrixParam("vendor") Long vendorParam) {
+                                    @RequiredParam @MatrixParam("vendor") Long vendorParam){
         Date beginDate = beginDateParam.getValue();
         Date endDate = endDateParam.getValue();
         Vendor vendor = new Vendor.Builder().withId(vendorParam).build();
@@ -120,7 +131,11 @@ public class OpportunityResource extends AbstractResource {
                 return Response.noContent().build();
             }
             else {
-                return Response.ok(entities).build();
+                if(asJson == null || !asJson){
+                    return Response.ok(entities).build();
+                }else {
+                    return Response.ok(entities, MediaType.APPLICATION_JSON).build();
+                }
             }
         }
     }

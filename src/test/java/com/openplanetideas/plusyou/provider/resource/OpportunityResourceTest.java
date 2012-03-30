@@ -81,7 +81,7 @@ public class OpportunityResourceTest extends AbstractResourceTest {
         Date date = any(Date.class);
         Vendor vendor = any(Vendor.class);
         when(opportunityRepository.findForInterestAndDate(interest, date, eq(date), vendor)).thenReturn(Collections.<Opportunity>emptyList());
-        Response response = opportunityResource.findForCriteria(0L, createDateParam(), createDateParam(), 0, 0D, 0D, 0L);
+        Response response = opportunityResource.findForCriteria(0L, createDateParam(), createDateParam(), 0, 0D, 0D, 0L, false);
         verify(opportunityRepository, never()).findForDate(any(Date.class), any(Date.class), any(Vendor.class));
         verify(opportunityRepository).findForInterestAndDate(any(Interest.class), any(Date.class), any(Date.class), any(Vendor.class));
 
@@ -96,7 +96,7 @@ public class OpportunityResourceTest extends AbstractResourceTest {
         opportunities.add(new Opportunity.Builder().withId(3L).withGeoLocation(new GeoLocation.Builder().withLatitude(51.362463).withLongitude(-0.19572).build()).build());
         opportunities.add(new Opportunity.Builder().withId(4L).withGeoLocation(new GeoLocation.Builder().withLatitude(51.360929).withLongitude(-0.160761).build()).build());
         when(opportunityRepository.findForInterestAndDate(any(Interest.class), any(Date.class), any(Date.class), any(Vendor.class))).thenReturn(opportunities);
-        Response response = opportunityResource.findForCriteria(0L, createDateParam(), createDateParam(), 0, 0D, 0D, 0L);
+        Response response = opportunityResource.findForCriteria(0L, createDateParam(), createDateParam(), 0, 0D, 0D, 0L, false);
         verify(opportunityRepository, never()).findForDate(any(Date.class), any(Date.class), any(Vendor.class));
         verify(opportunityRepository).findForInterestAndDate(any(Interest.class), any(Date.class), any(Date.class), any(Vendor.class));
 
@@ -111,7 +111,7 @@ public class OpportunityResourceTest extends AbstractResourceTest {
         opportunities.add(new Opportunity.Builder().withId(3L).withGeoLocation(new GeoLocation.Builder().withLatitude(51.362463).withLongitude(-0.19572).build()).build());
         opportunities.add(new Opportunity.Builder().withId(4L).withGeoLocation(new GeoLocation.Builder().withLatitude(51.360929).withLongitude(-0.160761).build()).build());
         when(opportunityRepository.findForInterestAndDate(any(Interest.class), any(Date.class), any(Date.class), any(Vendor.class))).thenReturn(opportunities);
-        Response response = opportunityResource.findForCriteria(0L, createDateParam(), createDateParam(), 1, 51.369088, -0.179579, 0L);
+        Response response = opportunityResource.findForCriteria(0L, createDateParam(), createDateParam(), 1, 51.369088, -0.179579, 0L, false);
         verify(opportunityRepository, never()).findForDate(any(Date.class), any(Date.class), any(Vendor.class));
         verify(opportunityRepository).findForInterestAndDate(any(Interest.class), any(Date.class), any(Date.class), any(Vendor.class));
 
@@ -132,7 +132,7 @@ public class OpportunityResourceTest extends AbstractResourceTest {
         opportunities.add(new Opportunity.Builder().withId(3L).withGeoLocation(new GeoLocation.Builder().withLatitude(51.362463).withLongitude(-0.19572).build()).build());
         opportunities.add(new Opportunity.Builder().withId(4L).withGeoLocation(new GeoLocation.Builder().withLatitude(51.360929).withLongitude(-0.160761).build()).build());
         when(opportunityRepository.findForDate(any(Date.class), any(Date.class), any(Vendor.class))).thenReturn(opportunities);
-        Response response = opportunityResource.findForCriteria(null, createDateParam(), createDateParam(), 1, 51.369088, -0.179579, 0L);
+        Response response = opportunityResource.findForCriteria(null, createDateParam(), createDateParam(), 1, 51.369088, -0.179579, 0L, false);
         verify(opportunityRepository).findForDate(any(Date.class), any(Date.class), any(Vendor.class));
         verify(opportunityRepository, never()).findForInterestAndDate(any(Interest.class), any(Date.class), any(Date.class), any(Vendor.class));
 

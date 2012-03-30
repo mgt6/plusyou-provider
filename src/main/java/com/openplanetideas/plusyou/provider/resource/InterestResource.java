@@ -37,7 +37,9 @@ import org.springframework.web.context.WebApplicationContext;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.GenericEntity;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
@@ -47,14 +49,19 @@ import java.util.List;
 public class InterestResource extends AbstractResource {
 
     @GET
-    public Response findAllSortedByName() {
+    public Response findAllSortedByName(@QueryParam("asJson") Boolean asJson) {
         List<Interest> interests = interestRepository.findAllSortedByName();
         if (interests.size() == 0) {
             return Response.noContent().build();
         }
         else {
+
             GenericEntity<List<Interest>> entities = new GenericEntity<List<Interest>>(interests){};
-            return Response.ok(entities).build();
+            if(asJson == null || !asJson){
+                return Response.ok(entities).build();
+            }else {
+                return Response.ok(entities, MediaType.APPLICATION_JSON).build();
+            }
         }
     }
 }

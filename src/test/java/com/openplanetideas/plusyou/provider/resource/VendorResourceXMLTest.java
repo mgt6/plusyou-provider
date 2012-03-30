@@ -35,6 +35,8 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 
+import static org.junit.Assert.assertEquals;
+
 public class VendorResourceXMLTest extends AbstractResourceXMLTest {
 
     @Test
@@ -42,7 +44,16 @@ public class VendorResourceXMLTest extends AbstractResourceXMLTest {
         String path = "vendors";
         String expectedXml = getExpectedXml("vendorsSortedByName.xml");
         String actualXml = executeGet(path);
-
         assertXML(expectedXml, actualXml);
     }
+
+    @Test
+    public void vendorSortedByName(){
+        String path = "vendors?asJson=true";
+        String actualJson = executeGet(path);
+        String expectedJson = "{\"vendor\":{\"id\":\"1\",\"name\":\"Do-it\"}}";
+        assertEquals(expectedJson, actualJson);
+    }
+
+
 }

@@ -35,6 +35,8 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 
+
+//TODO Test with JSON
 public class OpportunityResourceXMLTest extends AbstractResourceXMLTest {
 
     @Test
@@ -42,7 +44,6 @@ public class OpportunityResourceXMLTest extends AbstractResourceXMLTest {
         String path = "opportunities/ids?id=1&id=2&id=3&";
         String expectedXml = getExpectedXml("opportunitiesByIds.xml");
         String actualXml = executeGet(path, new String[]{"created", "updated"});
-
         assertXML(expectedXml, actualXml);
     }
 
