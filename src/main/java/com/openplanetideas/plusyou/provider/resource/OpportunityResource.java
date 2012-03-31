@@ -37,6 +37,8 @@ import com.openplanetideas.plusyou.provider.resource.param.DateParam;
 import com.openplanetideas.plusyou.provider.resource.param.common.RequiredParam;
 import com.openplanetideas.plusyou.provider.util.OpportunityDistancePredicate;
 import com.openplanetideas.plusyou.provider.util.OpportunityUtils;
+import net.fortuna.ical4j.model.component.VEvent;
+import net.fortuna.ical4j.util.UidGenerator;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -50,9 +52,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.net.SocketException;
+import java.util.*;
 
 @Controller
 @Scope(WebApplicationContext.SCOPE_REQUEST)
@@ -60,6 +61,46 @@ import java.util.List;
 public class OpportunityResource extends AbstractResource {
 
     private static final Integer MAX_RESULTS = 30;
+
+    @GET
+    @Path("/ical/{ical}")
+    public Response getIcal(@PathParam("ical") Long idParma){
+        Opportunity opportunity = opportunityRepository.findById(idParma);
+        if (opportunity == null) {
+            return Response.noContent().build();
+        }
+
+        Date date = opportunity.getDate();
+        Date start = opportunity.getBeginTime();
+        Date end = opportunity.getEndTime();
+
+        VEvent event;
+
+        if(start != null && end != null){
+          event   = new VEvent(new net.fortuna.ical4j.model.Date(start),new net.fortuna.ical4j.model.Date(end), opportunity.getTitle());
+        }       else {
+            event = new VEvent(new net.fortuna.ical4j.model.Date(date), opportunity.getTitle());
+        }
+        // initialise as an all-day event..
+
+
+        // Generate a UID for the event..
+        UidGenerator ug = null;
+        try {
+            ug = new UidGenerator(Integer.toString(opportunity.hashCode()));
+        } catch (SocketException e) {
+
+
+        }
+        event.getProperties().add(ug.generateUid());
+
+        net.fortuna.ical4j.model.Calendar cal = new net.fortuna.ical4j.model.Calendar();
+        cal.getComponents().add(event);
+
+        return Response.ok(cal.toString(), MediaType.TEXT_PLAIN).build();
+
+
+    }
 
     @GET
     @Path("{id}")

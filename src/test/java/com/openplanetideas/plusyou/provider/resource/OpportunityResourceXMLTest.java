@@ -48,6 +48,14 @@ public class OpportunityResourceXMLTest extends AbstractResourceXMLTest {
     }
 
     @Test
+    public void opportunityIcal() {
+        String path = "opportunities/ical/1";
+        String result = executeGet(path);
+
+        System.out.println(result);
+    }
+
+    @Test
     public void opportunitiesWithInterestCriteria() throws IOException, SAXException {
         String path = "opportunities;interest=2;beginDate=20111001;endDate=20111020;distance=3;latitude=51.37312;longitude=-0.144796;vendor=1";
         String expectedXml = getExpectedXml("opportunitiesWithInterestCriteria.xml");
