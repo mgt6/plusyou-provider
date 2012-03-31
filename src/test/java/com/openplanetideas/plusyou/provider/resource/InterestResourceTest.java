@@ -51,7 +51,7 @@ public class InterestResourceTest extends AbstractResourceTest {
         expectedInterests.add(new Interest.Builder().withName("Art and Culture").withType(Interest.InterestCategory.ART).build());
         expectedInterests.add(new Interest.Builder().withName("Disability").withType(Interest.InterestCategory.DISABILITY).build());
         when(interestRepository.findAllSortedByName()).thenReturn(expectedInterests);
-        Response response = interestResource.findAllSortedByName();
+        Response response = interestResource.findAllSortedByName(false);
         verify(interestRepository).findAllSortedByName();
         List<Interest> actualInterests = ((GenericEntity<List<Interest>>)response.getEntity()).getEntity();
 
@@ -62,7 +62,7 @@ public class InterestResourceTest extends AbstractResourceTest {
     @Test
     public void findAllSortedByNameWhenNoInterestsAreFound() {
         when(interestRepository.findAllSortedByName()).thenReturn(Collections.<Interest>emptyList());
-        Response response = interestResource.findAllSortedByName();
+        Response response = interestResource.findAllSortedByName(false);
         verify(interestRepository).findAllSortedByName();
 
         assertEquals(Response.Status.NO_CONTENT.getStatusCode(), response.getStatus());

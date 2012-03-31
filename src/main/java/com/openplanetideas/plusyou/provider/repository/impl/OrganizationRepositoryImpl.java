@@ -33,6 +33,7 @@ import com.openplanetideas.plusyou.provider.domain.Organization;
 import com.openplanetideas.plusyou.provider.domain.Organization_;
 import com.openplanetideas.plusyou.provider.repository.OrganizationRepository;
 import com.openplanetideas.plusyou.provider.repository.common.AbstractRepository;
+import org.hibernate.ejb.EntityManagerImpl;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.criteria.Predicate;
@@ -46,5 +47,11 @@ public class OrganizationRepositoryImpl extends AbstractRepository<Organization>
 
         query.where(correctOrganization);
         return entityManager.createQuery(query).getSingleResult();
+    }
+
+    public void save(Organization organization){
+        entityManager.getTransaction().begin();
+        entityManager.persist(organization);
+        entityManager.getTransaction().commit();
     }
 }

@@ -66,6 +66,12 @@ public class OpportunityRepositoryImpl extends AbstractRepository<Opportunity> i
         return entityManager.createQuery(query).getResultList();
     }
 
+    public void save(Opportunity opportunity){
+        entityManager.persist(opportunity);
+    }
+
+
+
     @Override
     public List<Opportunity> findForDate(Date beginDate, Date endDate, Vendor vendor) {
         Predicate betweenDate = builder.between(root.get(Opportunity_.date), beginDate, endDate);

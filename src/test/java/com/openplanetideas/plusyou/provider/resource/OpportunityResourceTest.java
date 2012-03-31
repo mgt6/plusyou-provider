@@ -58,7 +58,7 @@ public class OpportunityResourceTest extends AbstractResourceTest {
     public void findByIdWhenOpportunityIsFound() {
         Opportunity expectedOpportunity = new Opportunity.Builder().withTitle("Free Summer Film Training").build();
         when(opportunityRepository.findById(anyLong())).thenReturn(expectedOpportunity);
-        Response response = opportunityResource.findById(0L);
+        Response response = opportunityResource.findById(0L, false);
         verify(opportunityRepository).findById(anyLong());
         Opportunity actualOpportunity = (Opportunity) response.getEntity();
 
@@ -69,7 +69,7 @@ public class OpportunityResourceTest extends AbstractResourceTest {
     @Test
     public void findByIdWhenOpportunityIsNotFound() {
         when(opportunityRepository.findById(anyLong())).thenReturn(null);
-        Response response = opportunityResource.findById(0L);
+        Response response = opportunityResource.findById(0L, false);
         verify(opportunityRepository).findById(anyLong());
 
         assertEquals(Response.Status.NO_CONTENT.getStatusCode(), response.getStatus());
@@ -81,7 +81,7 @@ public class OpportunityResourceTest extends AbstractResourceTest {
         Date date = any(Date.class);
         Vendor vendor = any(Vendor.class);
         when(opportunityRepository.findForInterestAndDate(interest, date, eq(date), vendor)).thenReturn(Collections.<Opportunity>emptyList());
-        Response response = opportunityResource.findForCriteria(0L, createDateParam(), createDateParam(), 0, 0D, 0D, 0L, false);
+        Response response = opportunityResource.findForCriteria(false, 0L, createDateParam(), createDateParam(), 0, 0D, 0D, 0L);
         verify(opportunityRepository, never()).findForDate(any(Date.class), any(Date.class), any(Vendor.class));
         verify(opportunityRepository).findForInterestAndDate(any(Interest.class), any(Date.class), any(Date.class), any(Vendor.class));
 
@@ -96,7 +96,7 @@ public class OpportunityResourceTest extends AbstractResourceTest {
         opportunities.add(new Opportunity.Builder().withId(3L).withGeoLocation(new GeoLocation.Builder().withLatitude(51.362463).withLongitude(-0.19572).build()).build());
         opportunities.add(new Opportunity.Builder().withId(4L).withGeoLocation(new GeoLocation.Builder().withLatitude(51.360929).withLongitude(-0.160761).build()).build());
         when(opportunityRepository.findForInterestAndDate(any(Interest.class), any(Date.class), any(Date.class), any(Vendor.class))).thenReturn(opportunities);
-        Response response = opportunityResource.findForCriteria(0L, createDateParam(), createDateParam(), 0, 0D, 0D, 0L, false);
+        Response response = opportunityResource.findForCriteria(false, 0L, createDateParam(), createDateParam(), 0, 0D, 0D, 0L);
         verify(opportunityRepository, never()).findForDate(any(Date.class), any(Date.class), any(Vendor.class));
         verify(opportunityRepository).findForInterestAndDate(any(Interest.class), any(Date.class), any(Date.class), any(Vendor.class));
 
@@ -111,7 +111,7 @@ public class OpportunityResourceTest extends AbstractResourceTest {
         opportunities.add(new Opportunity.Builder().withId(3L).withGeoLocation(new GeoLocation.Builder().withLatitude(51.362463).withLongitude(-0.19572).build()).build());
         opportunities.add(new Opportunity.Builder().withId(4L).withGeoLocation(new GeoLocation.Builder().withLatitude(51.360929).withLongitude(-0.160761).build()).build());
         when(opportunityRepository.findForInterestAndDate(any(Interest.class), any(Date.class), any(Date.class), any(Vendor.class))).thenReturn(opportunities);
-        Response response = opportunityResource.findForCriteria(0L, createDateParam(), createDateParam(), 1, 51.369088, -0.179579, 0L, false);
+        Response response = opportunityResource.findForCriteria(false, 0L, createDateParam(), createDateParam(), 1, 51.369088, -0.179579, 0L);
         verify(opportunityRepository, never()).findForDate(any(Date.class), any(Date.class), any(Vendor.class));
         verify(opportunityRepository).findForInterestAndDate(any(Interest.class), any(Date.class), any(Date.class), any(Vendor.class));
 
@@ -132,7 +132,7 @@ public class OpportunityResourceTest extends AbstractResourceTest {
         opportunities.add(new Opportunity.Builder().withId(3L).withGeoLocation(new GeoLocation.Builder().withLatitude(51.362463).withLongitude(-0.19572).build()).build());
         opportunities.add(new Opportunity.Builder().withId(4L).withGeoLocation(new GeoLocation.Builder().withLatitude(51.360929).withLongitude(-0.160761).build()).build());
         when(opportunityRepository.findForDate(any(Date.class), any(Date.class), any(Vendor.class))).thenReturn(opportunities);
-        Response response = opportunityResource.findForCriteria(null, createDateParam(), createDateParam(), 1, 51.369088, -0.179579, 0L, false);
+        Response response = opportunityResource.findForCriteria(false, null, createDateParam(), createDateParam(), 1, 51.369088, -0.179579, 0L);
         verify(opportunityRepository).findForDate(any(Date.class), any(Date.class), any(Vendor.class));
         verify(opportunityRepository, never()).findForInterestAndDate(any(Interest.class), any(Date.class), any(Date.class), any(Vendor.class));
 
@@ -148,7 +148,7 @@ public class OpportunityResourceTest extends AbstractResourceTest {
     @Test
     public void findOpportunitiesByIdsWithNoResults() {
         when(opportunityRepository.findByIds(Lists.<Long>newArrayList())).thenReturn(Lists.<Opportunity>newArrayList());
-        Response response = opportunityResource.findByIds(Lists.<Long>newArrayList());
+        Response response = opportunityResource.findByIds(Lists.<Long>newArrayList(), false);
         verify(opportunityRepository).findByIds(Lists.<Long>newArrayList());
 
         assertEquals(Response.Status.NO_CONTENT.getStatusCode(), response.getStatus());
@@ -164,7 +164,7 @@ public class OpportunityResourceTest extends AbstractResourceTest {
         opportunities.add(new Opportunity.Builder().withId(8L).build());
 
         when(opportunityRepository.findByIds(opportunityIdList)).thenReturn(opportunities);
-        Response response = opportunityResource.findByIds(opportunityIdList);
+        Response response = opportunityResource.findByIds(opportunityIdList, false);
         verify(opportunityRepository).findByIds(opportunityIdList);
 
         List<Opportunity> actualOpportunities = ((GenericEntity<List<Opportunity>>) response.getEntity()).getEntity();
